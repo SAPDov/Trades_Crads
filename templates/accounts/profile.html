@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} | Profile {% endblock title %}
+
+{% block content %}
+<!-- Background image -->
+<div class="container-fluid">
+	<div class="bg-image" style="background-image:
+		url('https://images.alphacoders.com/876/876589.jpg');
+		height: 100vh;">
+		<div class="row">
+		{% for card in user.profile.deck.all %}
+			<div class="col-sm">
+				<div class="card bg-dark text-white" style="width: 15rem;">
+				<img src="{{card.img}}" class="card-img" alt="...">
+				<div class="card-img-overlay">
+					<h5 class="card-title">{{card.name}}</h5>
+					<p class="card-text"></p>
+					<p class="card-text"></p>
+					{% if forloop.counter|divisibleby:"3" %}
+						</div><div class="row">
+					{% endif %}
+				</div>
+				</div>
+			</div>
+		{% endfor %}
+	</div>		
+</div>		
+</div>
+{% endblock content %}
+<!-- Background image -->
+

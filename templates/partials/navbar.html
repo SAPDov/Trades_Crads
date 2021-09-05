@@ -1,0 +1,31 @@
+{% load static %}
+
+  <div class="b-example-divider"></div>
+  <header class="p-3 bg-dark text-white">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <img src="{% static 'img/rick_morty.png' %}" alt="" width="250" height="45">
+        </a>
+
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="{% url 'info' %}" class="nav-link px-2 text-secondary">Home</a></li>
+          <li><a href="#" class="nav-link px-2 text-white">About</a>
+          <li><a href="#" class="nav-link px-2 text-white">Trades</a></li>
+          <li><a href="{% url 'all_cards' %}" class="nav-link px-2 text-white">All Cards</a></li> 
+          {% if user.is_authenticated %}
+         <div class="text-end">
+            <a class="btn btn-outline-light me-2" href="#">{{user.username}} Deck</a>
+            <a class="btn btn-outline-light me-2" href="{% url 'profile' %}">{{user.username}} Profile</a>
+            <a class="btn btn-outline-light me-2" href="{% url 'logout' %}">Logout</a>
+          {% else %}
+              <a class="btn btn-outline-light me-2" href="{% url 'register' %}">Sign-up</a>
+              <a class="btn btn-warning" href="{% url 'login' %}">Login</a>
+          {% endif %}
+        </div>
+      </ul>
+      </div>
+    </div>
+  </header>
+
+

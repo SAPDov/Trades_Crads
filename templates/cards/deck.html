@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+	<h1>Here is my deck</h1>
+	{{user.username}}
+{% for c in card %}
+	{{c.card_id}}
+{% endfor %}
+{% for c in user.profile.deck.all %}
+	{{c.name}}
+	
+{% endfor %}
+
+{% for t in trade %}
+	{{t.profile.user}}
+{% endfor %}
+	{{profile.deck.cards}}
+
+
+{% endblock content %}
